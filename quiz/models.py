@@ -74,4 +74,10 @@ class Answer(Updated):
         ordering = ["id"]
 
     question = models.ForeignKey(Questions, related_name='answer', on_delete=models.DO_NOTHING)
+    answer_text = models.CharField(
+        max_length=255, verbose_name=_("Answer Text"), default='')
+    is_right = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.answer_text
 
